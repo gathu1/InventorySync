@@ -8,11 +8,11 @@ const Footer = () => {
 
 
             </div>
-            <div className="mt-5">
+            <div className="mt-5 text-white">
                 <p>orem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor <br /> incididunt ut labore et dolore magna aliqua</p>
             </div>
-            <div className="flex flex-row flex-wrap items-center justify-end gap-y-6 gap-x-12 bg-gray-700 text-center ">
+            <div className="flex flex-row flex-wrap items-center justify-end gap-y-6 gap-x-12 bg-gray-700 text-center text-white ">
                 <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
                     <li>
                         Company
@@ -45,7 +45,7 @@ const Footer = () => {
                 </ul>
             </div>
             <hr className="my-8 border-black" />
-            <div className="text-center">
+            <div className="text-center text-white">
                 © 2024 InventorySync
             </div>
         </footer>

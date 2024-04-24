@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'; 
 import {useState, useEffect} from 'react'
 import {auth,provider} from "./Config";
 import { signInWithPopup } from 'firebase/auth';
@@ -13,11 +12,18 @@ const Home = () => {
     useEffect(() =>{
       setValue(localStorage.getItem('email'))
     })
+    const logout = () => {
+      localStorage.clear()
+      window.location.reload()
+    }
   return (
     <>
-    <button onClick={handleClick} className='hover:bg-gray-700 rounded-mb mt-2 hover:text-white'>Continue With google</button>
-    <h6>logged in as</h6>
-    <h6 id="userName" className='text-black'></h6>
+    <div className='flex justify-end'>
+    <button onClick={handleClick} className='hover:bg-white bg-gray-700 rounded-mb mt-2 text-white hover:text-black ml-2 p-1'>Continue With Google</button>
+     <h6 className='ml-2'>logged in as:</h6>
+   {/* <h6 id="userName" className='text-black ml-2'></h6>
+    <button onClick={logout}>Logout</button> */}
+    </div>
       <div className='text-4xl mt-20 ml-20'>
       LOREM IPSUM INVENTORY <br /> SYSTEM
       </div>
