@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {getAuth, GoogleAuthProvider, onAuthStateChanged} from "firebase/auth"
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA3Z9pLjtFUSZKPFQ6Rtzr09dt2cQhak3I",
@@ -11,10 +12,10 @@ const firebaseConfig = {
   measurementId: "G-0T333T62VK"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
 const user = auth.currentUser;
 function updateUserProfile(user) {
     const userName = user.displayName;
@@ -33,4 +34,4 @@ onAuthStateChanged(auth, (user) => {
     }
 })
 
-export {auth, provider, user}
+export {auth, provider, user, db}

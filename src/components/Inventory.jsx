@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { db } from "./Config";
 
-function SaleTable() {
+function InventoryTable() {
     const [price, setPrice] = useState(0);
     const [qty, setQty] = useState(0);
     const [total, setTotal] = useState(0);
@@ -34,6 +36,15 @@ function SaleTable() {
             setPrice(newPrice);
             calculateTotal(newPrice, qty);
         }
+    //     try {
+    //         const docRef = await addDoc(collection(db, "todos"), {
+    //           todo: todo,    
+    //         });
+    //         console.log("Document written with ID: ", docRef.id);
+    //       } catch (e) {
+    //         console.error("Error adding document: ", e);
+    //       }
+    // }
     };
 
     const handleQuantityChange = (e) => {
@@ -47,18 +58,30 @@ function SaleTable() {
         const newTotal = price * qty;
         setSum(newTotal);
     };
-    function refreshPage() {
-        window.location.reload();
+    // function refreshPage() {
+    //     window.location.reload();
+    // }
+    const handleClick = async () => {
+            const valRef = collection(db, 'inptData')
+            await addDoc [valRef, name]
+            alert("Data added successfully")
     }
-
+    const getData = async ()  => {
+        const valRef = collection(db, 'inptData')
+        const db = await getDocs(valRef)
+        console.log(db)
+    }
+    useEffect(() =>{
+       getData 
+    })
     return (
         <div className="container-fluid text-center">
-            <h1>Sales</h1>
+            <h1>Inventory</h1>
             <br />
             <div className="row">
                 <div className="ml-10">
-                    <table className="text-left">
-                        <h3 className="" >Add Product</h3>
+                    <table className="text-left ">
+                        <h3 className="text-xl font-semibold mb-3" >Add Product</h3>
                         <tr>
                             <th>Product Name</th>
                             <th>Vendor</th>
@@ -99,12 +122,15 @@ function SaleTable() {
                         <td>
                             <button type="submit" className="rounded-lg bg-green-600 pl-3 pr-3" onClick={Calculation}>Add</button>
                         </td>
+                        {/* <td>
+                            <button  className="rounded-lg bg-green-600 pl-3 pr-3" onClick={handleClick}>Add Inventory</button>
+                        </td> */}
 
                     </table>
                     <div className="row">
                         <div className="col-sm-8">
                         
-                        <h3 className="text-left text-xl font-semibold mb-4">Products</h3>
+                        <h3 className="text-left text-xl font-semibold mb-4 mt-10">Products</h3>
                         <table className="min-w-full border border-gray-200 ">
                             <thead>
                             <tr className="bg-gray-100">
@@ -137,11 +163,38 @@ function SaleTable() {
                         <input type="text" className="form-control" placeholder="Enter Total" required disabled
                             value={total} />
                         <br />
-                        <button type="button" onClck={refreshPage} className="rounded-lg bg-red-500 pl-2 pr-2" ><span >Complete</span></button>
+                        <button  className="rounded-lg bg-green-600 pl-3 pr-3 mt-10" onClick={handleClick}>Add Inventory</button>
+
+                        {/* <button type="button" onClck={refreshPage} className="rounded-lg bg-red-500 pl-2 pr-2" ><span >Complete</span></button> */}
                     </div>
                     </div>
                 </div>
             </div>
             )
 }
-            export default SaleTable;
+            export default InventoryTable;
+
+    //         <div>
+    //         <h2>Inventory</h2>
+    //         <table>
+    //           <thead>
+    //             <tr>
+    //               <th>Name</th>
+    //               <th>Quantity</th>
+    //               <th>Price</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody>
+    //             {inventory.map((item) => (
+    //               <tr key={item.id}>
+    //                 <td>{item.name}</td>
+    //                 <td>{item.quantity}</td>
+    //                 <td>${item.price}</td>
+    //               </tr>
+    //             ))}
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   };
+      

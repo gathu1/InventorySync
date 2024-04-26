@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import InventoryTable from "./Inventory";
 
 function SaleTable() {
     const [price, setPrice] = useState(0);
@@ -47,10 +48,16 @@ function SaleTable() {
         const newTotal = price * qty;
         setSum(newTotal);
     };
-    function refreshPage() {
-        window.location.reload();
-    }
-
+    // function refreshPage() {
+    //     window.location.reload();
+    // }
+    const handleSale = () => {
+        // Find the product in the inventory
+        const product = InventoryTable.find((item) => item.name === productName);
+        if (product) {
+          product.qty -= parseInt(qty, 10);
+        }
+      };
     return (
         <div className="container-fluid text-center">
             <h1>Sales</h1>
@@ -58,7 +65,7 @@ function SaleTable() {
             <div className="row">
                 <div className="ml-10">
                     <table className="text-left">
-                        <h3 className="" >Add Product</h3>
+                        <h3 className="text-xl font-semibold mb-3" >Add Item</h3>
                         <tr>
                             <th>Product Name</th>
                             <th>Responsible Person</th>
@@ -75,7 +82,7 @@ function SaleTable() {
                             />
                         </td>
                         <td>
-                            <input type="text" className="form-control border rounded-lg mr-3" placeholder="Name" value={person}
+                            <input type="text" className="form-control border rounded-lg mr-3" placeholder="Seller Name" value={person}
                                 onChange={(event) => {
                                     setPerson(event.target.value);
                                 }}
@@ -104,7 +111,7 @@ function SaleTable() {
                     <div className="row">
                         <div className="col-sm-8">
                         
-                        <h3 className="text-left text-xl font-semibold mb-4">Products</h3>
+                        <h3 className="text-left text-xl font-semibold mb-4  mt-10">Items</h3>
                         <table className="min-w-full border border-gray-200 ">
                             <thead>
                             <tr className="bg-gray-100">
@@ -137,7 +144,7 @@ function SaleTable() {
                         <input type="text" className="form-control" placeholder="Enter Total" required disabled
                             value={total} />
                         <br />
-                        <button type="button" onClck={refreshPage} className="rounded-lg bg-red-500 pl-2 pr-2" ><span >Complete</span></button>
+                        <button type="button" onClck={handleSale} className="rounded-lg bg-green-600 pl-2 pr-2" ><span >Complete</span></button>
                     </div>
                     </div>
                 </div>
