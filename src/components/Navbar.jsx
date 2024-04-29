@@ -16,14 +16,16 @@ const Navbar = () => {
                         </li><li>
                             <Link to="/Sale" className='hover:underline text-white transition duration-300 ease-in-out font-bold '>Sales</Link>
                         </li>
+                        
                     </ul>
+                   
                     <div>
-                    
+                    <button className="ml-auto rounded-lg bg-white py-1 px-1"><Link to="/Signin">Signin</Link></button>
                     
                         </div>
                 </div>
 
-
+               
             </nav>
         </>
     )

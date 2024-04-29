@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { collection, addDoc, getDocs } from "firebase/firestore";
-import { db } from "./Config";
+// import { collection, addDoc, getDocs } from "firebase/firestore";
+// import { db } from "./Config";
 
 function InventoryTable() {
     const [price, setPrice] = useState(0);
