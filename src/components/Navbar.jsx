@@ -15,7 +15,7 @@ const hideNavbar =()=>{
   }
     return (
         <>
-    <header clas>
+    <header>
     <nav className='bg-gray-700 py-3 fixed top-0 left-0  w-screen flex flex-col items-center justify-center gap-6 transition duration-1000 transform translate-y-full transform-none'>
                 <div className='container  flex justify-between items-center mt-1 mb-1 '>
                     <Link to="/Home" className='ml-10 text-white font-mono text-2xl'><strong>IS</strong></Link>
