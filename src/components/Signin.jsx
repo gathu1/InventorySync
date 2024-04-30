@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
- import {Auth} from '@supabase/auth-ui-react'/*ThemeSupa*/
+import {Auth } from '@supabase/auth-ui-react'/*ThemeSupa*/
+import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { useNavigate } from 'react-router-dom'; 
 
 const supabase = createClient(
@@ -12,21 +13,31 @@ const navigate = useNavigate();
 
 supabase.auth.onAuthStateChange(async (event) =>
 {
-    if (event !== "SIGNED_OUT"){
-        navigate("/Signin")
-    }else{
+    if (event === "SIGNED_OUT"){
         navigate("/")
+    }else{
+        navigate("/Home", "/Inventory", "/Sale")
     }
 })
   return (
-    <header>
+    <div className="flex h-screen bg-gray-400 items-center justify-center">
+  <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
+  
+    <form>
+    
     <Auth
     supabaseClient ={supabase}
-    // appearance={{theme: ThemeSupa }}
+    appearance={{theme: ThemeSupa }}
     theme= "dark"
     providers={["google"]}
     />
-  </header>
+  
+      {/* Input fields (email, password, etc.) */}
+      {/* Submit button */}
+    </form>
+  </div>
+</div>
+   
   )
 }
 

@@ -31,7 +31,7 @@ useEffect(() => {
 
 async function signOutUser() {
   const { error } = await supabase.auth.signOut();
-  navigate("/Signin")
+  navigate("/")
 }
   // const [value, setValue] = useState('')
   // const handleClick = () => {
@@ -52,12 +52,11 @@ async function signOutUser() {
    
     <header>
      {/* { Object.keys(user) !== 0?  */}
-   <button onClick={() => signOutUser()}>Sign Out</button>   
     </header>
     
 
     
-         <div className='scrollbar-hide'>
+         <div className='mb-5 mt-10'>
          <div className='flex justify-end'>
            {/* <button onClick={handleClick} className='hover:bg-white bg-gray-700 rounded-mb mt-2 text-white hover:text-black ml-2 p-1'>Continue With Google</button> */}
               {/*<h6 className='ml-2'>logged in as:</h6>
@@ -67,6 +66,8 @@ async function signOutUser() {
          <div className='flex'>
            <div className='w-1/2'>
            <div className='text-4xl mt-20 ml-20'>
+           {/* <button className='rounded-lg p-3 bg-red-300' onClick={() => signOutUser()}>Sign Out</button>    */}
+
              LOREM IPSUM INVENTORY <br /> SYSTEM
            </div>
            <div className='  mt-5 ml-20'>
@@ -82,7 +83,7 @@ async function signOutUser() {
              </div>
              </div>
              <div className='w-1/2'>
-             <img src="src\assets\industry-3087393_1280.jpg" alt="" className='mt-20 mr-20  ' />
+             <img src="src\assets\industry-3087393_1280.jpg" alt="" className='mt-20 mr-20 rounded-lg ' />
              
            </div>
          </div>
