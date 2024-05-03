@@ -1,6 +1,6 @@
-import { createClient } from '@supabase/supabase-js'
-import { Auth } from '@supabase/auth-ui-react'/*ThemeSupa*/
-import { useNavigate } from 'react-router-dom';
+// import { createClient } from '@supabase/supabase-js'
+// import { Auth } from '@supabase/auth-ui-react'/*ThemeSupa*/
+// import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 
 const supabase = createClient(
@@ -14,20 +14,20 @@ const supabase = createClient(
 // import { signInWithPopup } from 'firebase/auth';
 
 const Home = () => {
-  const [user, setUser] = useState({});
-  const navigate = useNavigate();
+  // const [user, setUser] = useState({});
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    async function getUserData() {
-      await supabase.auth.getUser().then((value) => {
-        if (value.data?.user) {
-          console.log(value.data.user);
-          setUser(value.data.user);
-        }
-      })
-    }
-    getUserData();
-  }, []);
+  // useEffect(() => {
+  //   async function getUserData() {
+  //     await supabase.auth.getUser().then((value) => {
+  //       if (value.data?.user) {
+  //         console.log(value.data.user);
+  //         setUser(value.data.user);
+  //       }
+  //     })
+  //   }
+  //   getUserData();
+  // }, []);
 
   // async function signOutUser() {
   //   const { error } = await supabase.auth.signOut();
@@ -41,7 +41,7 @@ const Home = () => {
   
       
 
-        <div className='flex mb-10 mt-10'>
+        <div className='flex mb-20 mt-10'>
           <div className='w-1/2'>
             <div className='text-4xl mt-20 ml-20'>
 
