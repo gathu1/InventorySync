@@ -14,9 +14,9 @@ function Signin () {
 supabase.auth.onAuthStateChange(async (event) =>
 {
     if (event !== "SIGNED_OUT"){
-      window.location.href = "/Home";
+      window.location.href = "http://localhost:5173/Home";
     }else{
-      window.location.href = "/";
+      window.location.href = "http://localhost:5173/";
     }
 })
   return (
