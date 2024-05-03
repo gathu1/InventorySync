@@ -31,7 +31,7 @@ const Home = () => {
 
   async function signOutUser() {
     const { error } = await supabase.auth.signOut();
-    navigate("/");
+    window.location.href = "/";
   }
 
   return (

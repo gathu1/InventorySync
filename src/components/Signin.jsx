@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import {Auth } from '@supabase/auth-ui-react'/*ThemeSupa*/
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { useNavigate } from 'react-router-dom'; 
+// import { useNavigate } from 'react-router-dom'; 
 
 const supabase = createClient(
   "https://todfhdzdwqbzvpckpfkc.supabase.co",
@@ -9,14 +9,14 @@ const supabase = createClient(
 );
 
 function Signin () {
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
 supabase.auth.onAuthStateChange(async (event) =>
 {
     if (event !== "SIGNED_OUT"){
-        navigate("/")
+      window.location.href = "/";
     }else{
-        navigate("/Home")
+      window.location.href = "/";
     }
 })
   return (
@@ -32,8 +32,7 @@ supabase.auth.onAuthStateChange(async (event) =>
     providers={["google"]}
     />
   
-      {/* Input fields (email, password, etc.) */}
-      {/* Submit button */}
+     
     </form>
   </div>
 </div>
