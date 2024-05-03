@@ -64,7 +64,7 @@ const Home = () => {
 
           </div>
         </div>
-        { Object.keys(user) !== 0? 
+        {/* { Object.keys(user) !== 0? 
          <>
              <button className='rounded-lg p-3 bg-red-300' onClick={() => signOutUser()}>Sign Out</button>    
 
@@ -75,7 +75,7 @@ const Home = () => {
          <button onClick={() => {      window.location.href = "/";
 }}>Go back home</button>
          </>
-}
+} */}
     </>
   )
 }
