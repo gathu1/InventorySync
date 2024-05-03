@@ -48,22 +48,22 @@ function SaleTable() {
         const newTotal = price * qty;
         setSum(newTotal);
     };
-    // function refreshPage() {
-    //     window.location.reload();
-    // }
-    const handleSale = () => {
-        // Find the product in the inventory
-        const product = InventoryTable.find((item) => item.name === productName);
-        if (product) {
-          product.qty -= parseInt(qty, 10);
-        }
-      };
+    function refreshPage() {
+        window.location.reload();
+    }
+    // const handleSale = () => {
+    //     // Find the product in the inventory
+    //     const product = InventoryTable.find((item) => item.name === productName);
+    //     if (product) {
+    //       product.qty -= parseInt(qty, 10);
+    //     }
+    //   };
     return (
-        <div className="container-fluid text-center">
-            <h1>Sales</h1>
+        <div className="container-fluid text-center mb-5 mt-20">
+          
             <br />
             <div className="row">
-                <div className="ml-10">
+                <div className="ml-20">
                     <table className="text-left">
                         <h3 className="text-xl font-semibold mb-3" >Add Item</h3>
                         <tr>
@@ -104,7 +104,7 @@ function SaleTable() {
                             <input type="text" value={sum} className="form-control border rounded-lg mr-3" placeholder="Enter Total" id="total_cost" name="total_cost" disabled />
                         </td>
                         <td>
-                            <button type="submit" className="rounded-lg bg-green-600 pl-3 pr-3" onClick={Calculation}>Add</button>
+                            <button type="submit" className="rounded-lg bg-teal-400 hover:bg-teal-500 pl-3 pr-3" onClick={Calculation}>Add</button>
                         </td>
 
                     </table>
@@ -112,7 +112,7 @@ function SaleTable() {
                         <div className="col-sm-8">
                         
                         <h3 className="text-left text-xl font-semibold mb-4  mt-10">Items</h3>
-                        <table className="min-w-full border border-gray-200 ">
+                        <table className=" border border-gray-200 " style={{ width: "calc(100% - 196px)"}}>
                             <thead>
                             <tr className="bg-gray-100">
                         <th className="px-4 py-2">Item Name</th>
@@ -139,12 +139,12 @@ function SaleTable() {
                             </div>
                     </div>
                     <div className="col-sm-4">
-                        <div className="form-group  " >
+                        <div className="form-group mt-10 " >
                         <h3>Total</h3>
-                        <input type="text" className="form-control" placeholder="Enter Total" required disabled
+                        <input type="text" className="form-control bg-gray-200 rounded-lg" placeholder="Enter Total" required disabled
                             value={total} />
                         <br />
-                        <button type="button" onClck={handleSale} className="rounded-lg bg-green-600 pl-2 pr-2" ><span >Complete</span></button>
+                        <button type="button" onClick={refreshPage} className="rounded-lg bg-teal-400 hover:bg-teal-500 pl-2 pr-2 mt-10" ><span >Complete</span></button>
                     </div>
                     </div>
                 </div>

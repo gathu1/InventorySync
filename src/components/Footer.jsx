@@ -6,7 +6,7 @@ const Footer = () => {
     return (
 
 
-        <footer className="w-full bg-gray-700 p-8 ">
+        <footer className="w-full bg-indigo-500 p-8 ">
             <div className='flex'>
                 <div className='w-1/2'>
             <div className="fhdg mb-3">
@@ -15,8 +15,7 @@ const Footer = () => {
 
             </div>
             <div className="ftxt">
-                <p>orem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor <br /> incididunt ut labore et dolore magna aliqua</p>
+                <p>Efficiency in Every Transaction, Precision in Every Count.</p>
             </div>
             <div className='mt-5'>
             <FontAwesomeIcon icon={faFacebook} /> 
@@ -26,7 +25,7 @@ const Footer = () => {
             <FontAwesomeIcon icon={faYoutube} className='ml-2 '/> 
             </div>
             </div>
-            <div className="flex w-1/2 justify-end gap-y-6 gap-x-12 bg-gray-700 text-center text-white ">
+            <div className="flex w-1/2 justify-end gap-y-6 gap-x-12 bg-indigo-500 text-center text-white ">
                 <ul className="flex items-center gap-y-2 gap-x-8">
                     <li>
                         <div className='foot'>Company</div> {/*text-2xl mb-2  */}

@@ -36,15 +36,7 @@ function InventoryTable() {
             setPrice(newPrice);
             calculateTotal(newPrice, qty);
         }
-    //     try {
-    //         const docRef = await addDoc(collection(db, "todos"), {
-    //           todo: todo,    
-    //         });
-    //         console.log("Document written with ID: ", docRef.id);
-    //       } catch (e) {
-    //         console.error("Error adding document: ", e);
-    //       }
-    // }
+ 
     };
 
     const handleQuantityChange = (e) => {
@@ -58,9 +50,7 @@ function InventoryTable() {
         const newTotal = price * qty;
         setSum(newTotal);
     };
-    // function refreshPage() {
-    //     window.location.reload();
-    // }
+ 
     const handleClick = async () => {
             const valRef = collection(db, 'inptData')
             await addDoc [valRef, name]
@@ -75,11 +65,11 @@ function InventoryTable() {
        getData 
     })
     return (
-        <div className="container-fluid text-center">
-            <h1>Inventory</h1>
+        <div className="container-fluid text-center mb-5 mt-20">
+            
             <br />
             <div className="row">
-                <div className="ml-10">
+                <div className="ml-20">
                     <table className="text-left ">
                         <h3 className="text-xl font-semibold mb-3" >Add Product</h3>
                         <tr>
@@ -120,7 +110,7 @@ function InventoryTable() {
                             <input type="text" value={sum} className="form-control border rounded-lg mr-3" placeholder="Enter Total" id="total_cost" name="total_cost" disabled />
                         </td>
                         <td>
-                            <button type="submit" className="rounded-lg bg-green-600 pl-3 pr-3" onClick={Calculation}>Add</button>
+                            <button type="submit" className="rounded-lg bg-teal-400 hover:bg-teal-500 pl-3 pr-3" onClick={Calculation}>Add</button>
                         </td>
                         {/* <td>
                             <button  className="rounded-lg bg-green-600 pl-3 pr-3" onClick={handleClick}>Add Inventory</button>
@@ -131,7 +121,7 @@ function InventoryTable() {
                         <div className="col-sm-8">
                         
                         <h3 className="text-left text-xl font-semibold mb-4 mt-10">Products</h3>
-                        <table className="min-w-full border border-gray-200 ">
+                        <table className=" border border-gray-200 " style={{ width: "calc(100% - 196px)", margin: "0 20px" }}>
                             <thead>
                             <tr className="bg-gray-100">
                         <th className="px-4 py-2">Item Name</th>
@@ -158,14 +148,13 @@ function InventoryTable() {
                             </div>
                     </div>
                     <div className="col-sm-4">
-                        <div className="form-group  " >
+                        <div className="form-group mt-10 " >
                         <h3>Total</h3>
-                        <input type="text" className="form-control" placeholder="Enter Total" required disabled
+                        <input type="text" className="form-control bg-gray-200 rounded-lg" placeholder="Enter Total" required disabled
                             value={total} />
                         <br />
-                        <button  className="rounded-lg bg-green-600 pl-3 pr-3 mt-10" onClick={handleClick}>Add Inventory</button>
+                        {/* <button  className="rounded-lg bg-black pl-3 pr-3 mt-10 text-white hover:text-indigo-500" onClick={handleClick}>Add Inventory</button> */}
 
-                        {/* <button type="button" onClck={refreshPage} className="rounded-lg bg-red-500 pl-2 pr-2" ><span >Complete</span></button> */}
                     </div>
                     </div>
                 </div>

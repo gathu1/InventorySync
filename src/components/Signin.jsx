@@ -13,14 +13,14 @@ const navigate = useNavigate();
 
 supabase.auth.onAuthStateChange(async (event) =>
 {
-    if (event === "SIGNED_OUT"){
+    if (event !== "SIGNED_OUT"){
         navigate("/")
     }else{
-        navigate("/Home", "/Inventory", "/Sale")
+        navigate("/")
     }
 })
   return (
-    <div className="flex h-screen bg-gray-400 items-center justify-center">
+    <div className="flex h-screen bg-white items-center justify-center">
   <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
   
     <form>
@@ -28,7 +28,7 @@ supabase.auth.onAuthStateChange(async (event) =>
     <Auth
     supabaseClient ={supabase}
     appearance={{theme: ThemeSupa }}
-    theme= "dark"
+    // theme= "dark"
     providers={["google"]}
     />
   

@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
- import {Auth} from '@supabase/auth-ui-react'/*ThemeSupa*/
-import { useNavigate } from 'react-router-dom'; 
-import React, {useEffect, useState} from 'react'
+import { Auth } from '@supabase/auth-ui-react'/*ThemeSupa*/
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
 
 const supabase = createClient(
   "https://todfhdzdwqbzvpckpfkc.supabase.co",
@@ -14,82 +14,69 @@ const supabase = createClient(
 // import { signInWithPopup } from 'firebase/auth';
 
 const Home = () => {
-const [user, setUser] = useState({});
-const navigate = useNavigate();
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
-useEffect(() => {
-  async function getUserData() {
-    await supabase.auth.getUser().then((value) => {
-      if(value.data?.user) {
-        console.log(value.data.user);
-        setUser(value.data.user);
-      }
-    })
+  useEffect(() => {
+    async function getUserData() {
+      await supabase.auth.getUser().then((value) => {
+        if (value.data?.user) {
+          console.log(value.data.user);
+          setUser(value.data.user);
+        }
+      })
+    }
+    getUserData();
+  }, []);
+
+  async function signOutUser() {
+    const { error } = await supabase.auth.signOut();
+    navigate("/");
   }
-  getUserData();
-}, []);
 
-async function signOutUser() {
-  const { error } = await supabase.auth.signOut();
-  navigate("/")
-}
-  // const [value, setValue] = useState('')
-  // const handleClick = () => {
-  //   signInWithPopup(auth, provider).then((data) => {
-  //     setValue(data.user.email)
-  //     localStorage.setItem("email", data.user.email)
-  //   })
-  // }
-  // useEffect(() => {
-  //   setValue(localStorage.getItem('email'))
-  // })
-  // const logout = () => {
-  //   localStorage.clear()
-  //   window.location.reload()
-  // }
   return (
     <>
-   
-    <header>
-     {/* { Object.keys(user) !== 0?  */}
-    </header>
-    
 
-    
-         <div className='mb-5 mt-10'>
-         <div className='flex justify-end'>
-           {/* <button onClick={handleClick} className='hover:bg-white bg-gray-700 rounded-mb mt-2 text-white hover:text-black ml-2 p-1'>Continue With Google</button> */}
-              {/*<h6 className='ml-2'>logged in as:</h6>
-         <h6 id="userName" className='text-black ml-2'></h6>
-       <button onClick={logout}>Logout</button> */}
-         </div>
-         <div className='flex'>
-           <div className='w-1/2'>
-           <div className='text-4xl mt-20 ml-20'>
-           {/* <button className='rounded-lg p-3 bg-red-300' onClick={() => signOutUser()}>Sign Out</button>    */}
-
-             LOREM IPSUM INVENTORY <br /> SYSTEM
-           </div>
-           <div className='  mt-5 ml-20'>
-             <p className=""> Lorem ipsum dolor sit amet, consectetur adipiscing elit
-               sed do <br /> eiusmod tempor incididunt ut labore et dolore
-               magna aliqua. <br /> Ut enim ad minim veniam, quis nostrud
-               exercitation ullamco <br />laboris nisi ut aliquip ex ea commodo
-               consequat. Duis aute irure <br /> dolor in reprehenderit in
-               voluptate velit esse cillum dolore eu <br /> fugiat nulla pariatur.
-               Excepteur sint occaecat cupidatat non  <br />proident, sunt in culpa
-               qui officia deserunt mollit anim id est laborum.
-             </p>
-             </div>
-             </div>
-             <div className='w-1/2'>
-             <img src="src\assets\industry-3087393_1280.jpg" alt="" className='mt-20 mr-20 rounded-lg ' />
-             
-           </div>
-         </div>
-         </div>
-         {/* <img src="src/assets/photo-1616401776146-ae3453da7105.avif" alt="" /> */}
-       </>
-  )} 
       
+  
+      
+
+        <div className='flex mb-10 mt-10'>
+          <div className='w-1/2'>
+            <div className='text-4xl mt-20 ml-20'>
+
+              <h1 class="text-4xl font-bold text-gray-900">Inventory Management <br /> Portal</h1>
+
+            </div>
+            <div className='  mt-5 ml-20'>
+              <p class="text-gray-600">
+                Welcome to our Inventory Management System! Our platform streamlines <br />
+                inventory tracking, order management, and stock replenishment. Easily
+                <br /> manage product quantities, monitor sales, and generate reports. Whether <br />
+                you're a small business or a large enterprise, our system ensures efficient <br />
+                inventory control.
+              </p>
+
+            </div>
+          </div>
+          <div className='w-1/2 mr-10'>
+            <img src="src\assets\industry-3087393_1280.jpg" alt="" className='mt-20 rounded-lg ' />
+
+          </div>
+        </div>
+        { Object.keys(user) !== 0? 
+         <>
+             <button className='rounded-lg p-3 bg-red-300' onClick={() => signOutUser()}>Sign Out</button>    
+
+         </>
+         :
+         <>
+         <h1>User is not logged in</h1>
+         <button onClick={() => {navigate("/")}}>Go back home</button>
+         </>
+}
+    </>
+  )
+}
+
 export default Home

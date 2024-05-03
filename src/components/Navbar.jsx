@@ -16,17 +16,17 @@ const hideNavbar =()=>{
     return (
         <>
     <header>
-    <nav className='bg-gray-700 py-3 fixed top-0 left-0  w-screen flex flex-col items-center justify-center gap-6 transition duration-1000 transform translate-y-full transform-none'>
+    <nav className='bg-indigo-500 py-3 fixed top-0 left-0  w-screen flex flex-col items-center justify-center gap-6 transition duration-1000 transform translate-y-full transform-none'>
                 <div className='container  flex justify-between items-center mt-1 mb-1 '>
                     <Link to="/Home" className='ml-10 text-white font-mono text-2xl'><strong>IS</strong></Link>
                     <ul className="flex justify-center items-center space-x-10">
                         <li>
-                            <Link to="/Home" className='hover:underline text-white font-mono transition duration-300 ease-in-out font-bold '>Home</Link>
+                            <Link to="/Home" className='hover:underline text-white font-garacie transition duration-300 ease-in-out font-bold '>Home</Link>
                         </li>
                         <li>
-                            <Link to="/Inventory" className='hover:underline font-mono text-white transition duration-300 ease-in-out font-bold '>Inventory</Link>
+                            <Link to="/Inventory" className='hover:underline font-garacie text-white transition duration-300 ease-in-out font-bold '>Inventory</Link>
                         </li><li>
-                            <Link to="/Sale" className='hover:underline text-white  font-mono transition duration-300 ease-in-out font-bold '>Sales</Link>
+                            <Link to="/Sale" className='hover:underline text-white  font-garacie transition duration-300 ease-in-out font-bold '>Sales</Link>
                         </li>
                         <button className="p-1 cursor-pointer bg-transparent border-none outline-none invisible opacity-0 text-white text-2xl hover:visible hover:opacity-100 absolute top-2 right-2" onClick={hideNavbar}>
                      <FontAwesomeIcon icon={faTimes} /> 
