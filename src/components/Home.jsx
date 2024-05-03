@@ -29,10 +29,10 @@ const Home = () => {
     getUserData();
   }, []);
 
-  async function signOutUser() {
-    const { error } = await supabase.auth.signOut();
-    navigate("/");
-  }
+  // async function signOutUser() {
+  //   const { error } = await supabase.auth.signOut();
+  //   navigate("/");
+  // }
 
   return (
     <>
@@ -64,7 +64,7 @@ const Home = () => {
 
           </div>
         </div>
-       { Object.keys(user) !== 0? 
+       {/* { Object.keys(user) !== 0? 
          <>
              <button className='rounded-lg p-3 bg-red-300' onClick={() => signOutUser()}>Sign Out</button>    
 
@@ -74,7 +74,7 @@ const Home = () => {
          <h1>User is not logged in</h1>
          <button onClick={() => {navigate("/")}}>Go back home</button>
          </>
-}
+} */}
     </>
   )
 }
