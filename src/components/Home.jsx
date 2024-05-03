@@ -29,10 +29,10 @@ const Home = () => {
     getUserData();
   }, []);
 
-  // async function signOutUser() {
-  //   const { error } = await supabase.auth.signOut();
-  //   window.location.href = "/";
-  // }
+  async function signOutUser() {
+    const { error } = await supabase.auth.signOut();
+    window.location.href = "/";
+  }
 
   return (
     <>
@@ -60,21 +60,22 @@ const Home = () => {
             </div>
           </div>
           <div className='w-1/2 mr-10'>
-            <img src="src\assets\industry-3087393_1280.jpg" alt="" className='mt-20 rounded-lg ' />
+            <img src="src/assets/industry-3087393_1280.jpg" alt="" className='mt-20 rounded-lg ' />
 
           </div>
         </div>
-        {/* { Object.keys(user) !== 0? 
-         <> */}
-             {/* <button className='rounded-lg p-3 bg-red-300' onClick={() => signOutUser()}>Sign Out</button>     */}
+        { Object.keys(user) !== 0? 
+         <>
+             <button className='rounded-lg p-3 bg-red-300' onClick={() => signOutUser()}>Sign Out</button>    
 
-         {/* </>
+         </>
          :
          <>
          <h1>User is not logged in</h1>
-         <button onClick={() => {navigate("/")}}>Go back home</button>
+         <button onClick={() => {      window.location.href = "/";
+}}>Go back home</button>
          </>
-} */}
+}
     </>
   )
 }
