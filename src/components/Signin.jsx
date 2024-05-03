@@ -14,9 +14,9 @@ const navigate = useNavigate();
 supabase.auth.onAuthStateChange(async (event) =>
 {
     if (event !== "SIGNED_OUT"){
-        navigate("/")
-    }else{
         navigate("/Home")
+    }else{
+        navigate("/")
     }
 })
   return (
