@@ -59,7 +59,7 @@ function SaleTable() {
     //     }
     //   };
     return (
-        <div className="container-fluid text-center mb-5 mt-20">
+        <div className="container-fluid text-center mb-5 mt-40">
           
             <br />
             <div className="row">

@@ -41,7 +41,7 @@ const Home = () => {
   
       
 
-        <div className='flex mb-20 mt-10'>
+        <div className='flex mb-20 mt-40'>
           <div className='w-1/2'>
             <div className='text-4xl mt-20 ml-20'>
 
